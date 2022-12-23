@@ -23,7 +23,8 @@ export const loginSlice = createSlice({
       state.password = action.payload.password;
     },
     loginAccount(state, action) {
-      state.isLogged = false;
+      console.log(action);
+      state.isLogged = true;
       state.email = action.payload.email;
       state.password = action.payload.password;
     },

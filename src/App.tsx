@@ -8,6 +8,7 @@ import { store } from './store/store';
 import SignUpPage from './pages/login/SignUpPage';
 import LoginPage from './pages/login/LoginPage';
 import TodoPage from './pages/todo/TodoPage';
+import RootPage from './pages/root/RootPage';
 
 const persistor = persistStore(store);
 
@@ -18,6 +19,7 @@ const App = () => {
         <div className="App">
           <BrowserRouter>
             <Routes>
+              <Route path="/" element={<RootPage />} />
               <Route path="/sign-up" element={<SignUpPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/todo" element={<TodoPage />} />
