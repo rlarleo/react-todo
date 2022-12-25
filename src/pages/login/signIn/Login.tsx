@@ -7,9 +7,12 @@ import Button from '@mui/joy/Button';
 import Link from '@mui/joy/Link';
 import { useNavigate } from 'react-router-dom';
 import Alert from '@mui/joy/Alert';
-import Container from '../../component/layout/Container';
-import { selectUsers } from '../../store/user/user.slice';
-import { selectLoggedState, loginAccount } from '../../store/login/login.slice';
+import Container from '../../../component/layout/Container';
+import { selectUsers } from '../../../store/user/user.slice';
+import {
+  selectLoggedState,
+  loginAccount,
+} from '../../../store/login/login.slice';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -27,11 +30,10 @@ const Login = () => {
     if (found) {
       setIsIncorrect(false);
       dispatch(loginAccount({ email, password }));
-      navigate(`/todo`);
     } else {
       setIsIncorrect(true);
     }
-  }, [email, navigate, password, users]);
+  }, [dispatch, email, password, users]);
 
   useEffect(() => {
     if (!loggedState.isLogged) {

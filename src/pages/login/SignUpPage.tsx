@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { CssVarsProvider, TextField, Button } from '@mui/joy';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Stack } from '@mui/material';
 import {
   Edit as EditIcon,

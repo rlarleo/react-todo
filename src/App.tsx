@@ -6,7 +6,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store } from './store/store';
 import SignUpPage from './pages/login/SignUpPage';
-import LoginPage from './pages/login/LoginPage';
+import SignInPage from './pages/login/signIn/SignInPage';
 import TodoPage from './pages/todo/TodoPage';
 import RootPage from './pages/root/RootPage';
 
@@ -21,7 +21,7 @@ const App = () => {
             <Routes>
               <Route path="/" element={<RootPage />} />
               <Route path="/sign-up" element={<SignUpPage />} />
-              <Route path="/login" element={<LoginPage />} />
+              <Route path="/login" element={<SignInPage />} />
               <Route path="/todo" element={<TodoPage />} />
             </Routes>
           </BrowserRouter>
