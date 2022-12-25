@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useCallback, FC } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   CardActionArea,
@@ -13,11 +13,6 @@ import {
   CellMeasurer as _CellMeasurer,
   AutoSizer as _AutoSizer,
   List as _List,
-  WindowScrollerProps,
-  CellMeasurerProps,
-  CellMeasurerCache,
-  ListProps,
-  AutoSizerProps,
   ListRowProps,
 } from 'react-virtualized';
 import { ITodo, TodoState } from '../../data/todo';
@@ -25,11 +20,6 @@ import { changeState } from '../../store/todo/todo.slice';
 import { selectLoggedState, loginAccount } from '../../store/login/login.slice';
 import { filter } from '../../pages/todo/TodoPage';
 import InfiniteScroll from '../../hooks/infiniteScroll/infiniteScroll';
-
-const List = _List as unknown as FC<ListProps>;
-const AutoSizer = _AutoSizer as unknown as FC<AutoSizerProps>;
-const CellMeasurer = _CellMeasurer as unknown as FC<CellMeasurerProps>;
-const WindowScroller = _WindowScroller as unknown as FC<WindowScrollerProps>;
 
 interface ICardProps {
   children?: React.ReactNode;
@@ -59,6 +49,8 @@ const TodoCard: React.FC<ICardProps> = ({
   const [filterdTodos, setFilterdTodos] = useState<ITodo[]>([]);
   const [filterdViewTodos, setFilterdViewTodos] = useState<ITodo[]>([]);
   const [hasMore, setHasMore] = useState(true);
+  const [, updateState] = useState<{}>();
+  const forceUpdate = useCallback(() => updateState({}), []);
 
   const handleTodo = useCallback(
     (item: ITodo, fromState: TodoState, toState: TodoState) => {
@@ -86,7 +78,8 @@ const TodoCard: React.FC<ICardProps> = ({
               {`#${todo.id} `}
               <Typography
                 gutterBottom
-                variant="h5"
+                variant="body2"
+                fontSize={20}
                 component="div"
                 style={{ wordBreak: 'break-all' }}
               >
@@ -134,13 +127,16 @@ const TodoCard: React.FC<ICardProps> = ({
   );
 
   useEffect(() => {
+    setFilterdTodos([]);
+  }, [filters.owner, filters.title, todos]);
+
+  useEffect(() => {
     const filtering = todos.filter(
       todo =>
         (filters.owner === '전체' ? true : todo.owner === filters.owner) &&
         (filters.title === '' ? true : todo.title.includes(filters.title)),
     );
-    setFilterdTodos(filtering);
-    setFilterdViewTodos(filtering.slice(0, 10));
+    setTimeout(() => setFilterdTodos(filtering), 10);
   }, [filters.owner, filters.title, todos]);
 
   useEffect(() => {

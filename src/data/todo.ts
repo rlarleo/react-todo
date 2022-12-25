@@ -10,7 +10,15 @@ export const initialBacklogs: ITodo[] = [];
 for (let i = 0; i < 10000; i += 1) {
   initialBacklogs.push({
     id: i,
-    title: i.toString(),
+    title:
+      i.toString() +
+      i.toString() +
+      i.toString() +
+      i.toString() +
+      i.toString() +
+      i.toString() +
+      i.toString() +
+      i.toString(),
     owner: '',
     status: 'backlogs',
   });
