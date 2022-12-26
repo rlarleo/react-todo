@@ -10,7 +10,7 @@ react-virtualized <-> react18 호환성 문제로 npm install 시 --legacy-peer-
 
 ## library
 
-- 1. react-virtualized
+### 1. react-virtualized
   - windowing 라이브러리
 
 
