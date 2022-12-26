@@ -22,18 +22,6 @@ interface ICardProps {
   todo: ITodo;
 }
 
-const Loader = () => (
-  <div
-    style={{
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }}
-  >
-    loading...
-  </div>
-);
-
 const TodoCard: React.FC<ICardProps> = ({ todo }: ICardProps) => {
   const dispatch = useDispatch();
   const { email } = useSelector(selectLoggedState);

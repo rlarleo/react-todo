@@ -1,5 +1,4 @@
 import React, { useCallback, useState, useEffect } from 'react';
-import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/joy/Typography';
 import TextField from '@mui/joy/TextField';
@@ -40,48 +39,46 @@ const Login = () => {
   }, [loggedState.email, loggedState.isLogged, loggedState.password]);
 
   return (
-    <CssVarsProvider>
-      <main>
-        {isIncorrect && (
-          <Alert color="danger">Incorrect username or password.</Alert>
-        )}
-        <Container width={300}>
-          <div>
-            <Typography level="h4" component="h1">
-              <b>Welcome to Bmeks</b>
-            </Typography>
-            <Typography level="body2">Sign in to continue.</Typography>
-          </div>
-          <TextField
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            placeholder="아이디"
-            label="Username or email address"
-            color="info"
-          />
-          <TextField
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            type="password"
-            placeholder="비밀번호"
-            label="Password"
-            color="success"
-          />
-          <Button variant="soft" sx={{ mt: 1 }} onClick={() => handleSignUp()}>
-            Log in
-          </Button>
-          <Typography
-            endDecorator={
-              <Link onClick={() => navigate(`/sign-up`)}>Sign up</Link>
-            }
-            fontSize="sm"
-            sx={{ alignSelf: 'center' }}
-          >
-            Don&apos;t have an account?
+    <>
+      {isIncorrect && (
+        <Alert color="danger">Incorrect username or password.</Alert>
+      )}
+      <Container width={300}>
+        <div>
+          <Typography level="h4" component="h1">
+            <b>Welcome to Bmeks</b>
           </Typography>
-        </Container>
-      </main>
-    </CssVarsProvider>
+          <Typography level="body2">Sign in to continue.</Typography>
+        </div>
+        <TextField
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          placeholder="아이디"
+          label="Username or email address"
+          color="info"
+        />
+        <TextField
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          type="password"
+          placeholder="비밀번호"
+          label="Password"
+          color="success"
+        />
+        <Button variant="soft" sx={{ mt: 1 }} onClick={() => handleSignUp()}>
+          Log in
+        </Button>
+        <Typography
+          endDecorator={
+            <Link onClick={() => navigate(`/sign-up`)}>Sign up</Link>
+          }
+          fontSize="sm"
+          sx={{ alignSelf: 'center' }}
+        >
+          Don&apos;t have an account?
+        </Typography>
+      </Container>
+    </>
   );
 };
 

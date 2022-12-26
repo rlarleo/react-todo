@@ -6,7 +6,7 @@ import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store } from './store/store';
 import SignUpPage from './pages/login/SignUpPage';
-import SignInPage from './pages/login/signIn/SignInPage';
+import SignInPage from './pages/login/SignInPage';
 import TodoPage from './pages/todo/TodoPage';
 import RootPage from './pages/root/RootPage';
 
