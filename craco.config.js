@@ -1,19 +1,12 @@
-const cracoAlias = require("craco-alias");
+const CracoAlias = require("craco-alias");
 
 module.exports = {
-  resolve: {
-    fallback: {
-      crypto: false,
-    },
-  },
   plugins: [
     {
-      plugin: cracoAlias,
+      plugin: CracoAlias,
       options: {
         source: "tsconfig",
-        baseUrl: ".",
-        tsConfigPath: "tsconfig.extend.json",
-        debug: false,
+        tsConfigPath: "tsconfig.paths.json",
       },
     },
   ],

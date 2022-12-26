@@ -6,10 +6,10 @@ import {
   List as _List,
   ListRowProps,
 } from 'react-virtualized';
+import { ITodo } from '@data/todo';
+import { filter } from '@pages/todo/TodoPage';
 import TodoCard from './TodoCard';
-import { ITodo } from '../../data/todo';
-import { filter } from '../../pages/todo/TodoPage';
-import InfiniteScroll from '../../hooks/infiniteScroll/infiniteScroll';
+import InfiniteScroll from '../infiniteScroll/InfiniteScroll';
 
 interface ICardProps {
   children?: React.ReactNode;

@@ -1,4 +1,4 @@
-import { Todo } from '../store/todo/todo.slice';
+import { Todo } from '@store/todo/todo.slice';
 
 export type TodoState = keyof Todo;
 

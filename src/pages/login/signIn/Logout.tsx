@@ -2,18 +2,10 @@ import React, { useCallback, useState, useEffect } from 'react';
 import { CssVarsProvider, useColorScheme } from '@mui/joy/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import Typography from '@mui/joy/Typography';
-import TextField from '@mui/joy/TextField';
 import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
 import { useNavigate } from 'react-router-dom';
-import Alert from '@mui/joy/Alert';
-import Container from '../../../component/layout/Container';
-import { selectUsers } from '../../../store/user/user.slice';
-import {
-  selectLoggedState,
-  loginAccount,
-  logoutAccount,
-} from '../../../store/login/login.slice';
+import Container from '@components/layout/Container';
+import { selectLoggedState, logoutAccount } from '@store/login/login.slice';
 
 const LogoutPage = () => {
   const navigate = useNavigate();

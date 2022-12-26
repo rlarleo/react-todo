@@ -12,7 +12,7 @@ import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import CellMeasurer, {
   CellMeasurerCache,
 } from 'react-virtualized/dist/commonjs/CellMeasurer';
-import usePrevious from './usePrevious';
+import usePrevious from '../../hooks/infiniteScroll/usePrevious';
 
 const InfiniteScroll = ({
   hasMore,
@@ -142,7 +142,6 @@ const InfiniteScroll = ({
           _resizeAllFlag.current = true;
           setTimeout(_resizeAll, 0);
         }
-
         return (
           <List
             deferredMeasurementCache={_cache}

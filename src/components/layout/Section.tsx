@@ -15,7 +15,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import _ from 'lodash';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { selectUsers } from '../../store/user/user.slice';

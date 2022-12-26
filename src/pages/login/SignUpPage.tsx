@@ -7,16 +7,17 @@ import {
   PersonRounded as PersonRoundedIcon,
 } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
-import Container from '../../component/layout/Container';
-import { signUp } from '../../store/user/user.slice';
-import { signUpAccount } from '../../store/login/login.slice';
+import Container from '@components/layout/Container';
+import { signUp } from '@store/user/user.slice';
+import { signUpAccount } from '@store/login/login.slice';
 
 const SignUpPage: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const txt = 'Enter your email';
-  const passwordTxt = 'Enter your password';
+  const emailInputText = 'Enter your email';
+  const passwordInputTxt = 'Enter your password';
+
   const [emailText, setEmailText] = useState<string>('');
   const [emailCount, setEmailCount] = useState<number>(0);
   const [hideEmailForm, setHideEmailForm] = useState<boolean>(true);
@@ -38,10 +39,10 @@ const SignUpPage: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setEmailText(emailText + txt[emailCount]);
+      setEmailText(emailText + emailInputText[emailCount]);
       setEmailCount(emailCount + 1);
     }, 100);
-    if (emailCount === txt.length) {
+    if (emailCount === emailInputText.length) {
       clearInterval(interval);
       setHideEmailForm(false);
     }
@@ -74,7 +75,7 @@ const SignUpPage: React.FC = () => {
           )}
           {!hidePasswordForm && (
             <>
-              {passwordTxt}
+              {passwordInputTxt}
               <Stack direction="row" spacing={2}>
                 <TextField
                   value={password}

@@ -14,9 +14,9 @@ import {
   AutoSizer as _AutoSizer,
   List as _List,
 } from 'react-virtualized';
-import { ITodo, TodoState } from '../../data/todo';
-import { changeState } from '../../store/todo/todo.slice';
-import { selectLoggedState } from '../../store/login/login.slice';
+import { ITodo, TodoState } from '@data/todo';
+import { changeState } from '@store/todo/todo.slice';
+import { selectLoggedState } from '@store/login/login.slice';
 
 interface ICardProps {
   todo: ITodo;

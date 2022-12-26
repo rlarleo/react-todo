@@ -1,15 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 import { selectLoggedState } from '../../store/login/login.slice';
 
 const RootPage = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const loggedState = useSelector(selectLoggedState);
-
-  console.log(loggedState);
 
   useEffect(() => {
     if (loggedState.isLogged) {
@@ -18,7 +14,7 @@ const RootPage = () => {
       navigate(`/login`);
     }
   }, [loggedState.isLogged, navigate]);
-  return <div>test</div>;
+  return <div>root page</div>;
 };
 
 export default RootPage;

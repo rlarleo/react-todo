@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Divider, Stack, Button } from '@mui/material';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import Section from '../../component/layout/Section';
-import TodoCards from '../../component/card/TodoCards';
-import { selectTodos } from '../../store/todo/todo.slice';
+import Section from '@components/layout/Section';
+import TodoCards from '@components/card/TodoCards';
+import { selectTodos } from '@store/todo/todo.slice';
 
 export interface filter {
   owner: string;
