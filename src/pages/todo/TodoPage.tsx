@@ -3,7 +3,7 @@ import { Divider, Stack, Button } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Section from '../../component/layout/Section';
-import TodoCard from '../../component/card/TodoCard';
+import TodoCards from '../../component/card/TodoCards';
 import { selectTodos } from '../../store/todo/todo.slice';
 
 export interface filter {
@@ -47,7 +47,10 @@ const TodoPage = () => {
               title="Backlog"
               sx={{ bgcolor: '#d7fcd8' }}
             >
-              <TodoCard filters={backLogFilters} todos={todos.backlogs ?? []} />
+              <TodoCards
+                filters={backLogFilters}
+                todos={todos.backlogs ?? []}
+              />
             </Section>
             <Section
               filters={todoFilters}
@@ -55,7 +58,7 @@ const TodoPage = () => {
               title="To do"
               sx={{ bgcolor: '#d4fff9' }}
             >
-              <TodoCard filters={todoFilters} todos={todos.todos ?? []} />
+              <TodoCards filters={todoFilters} todos={todos.todos ?? []} />
             </Section>
             <Section
               filters={doingFilters}
@@ -63,7 +66,7 @@ const TodoPage = () => {
               title="Doing"
               sx={{ bgcolor: '#f0d9ff' }}
             >
-              <TodoCard filters={doingFilters} todos={todos.doings ?? []} />
+              <TodoCards filters={doingFilters} todos={todos.doings ?? []} />
             </Section>
             <Section
               filters={doneFilters}
@@ -71,7 +74,7 @@ const TodoPage = () => {
               title="Done"
               sx={{ bgcolor: '#fcfcd7' }}
             >
-              <TodoCard filters={doneFilters} todos={todos.dones ?? []} />
+              <TodoCards filters={doneFilters} todos={todos.dones ?? []} />
             </Section>
           </>
         )}
