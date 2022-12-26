@@ -19,7 +19,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { styled } from '@mui/material/styles';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { selectUsers } from '../../store/user/user.slice';
-import { selectTodos } from '../../store/todo/todo.slice';
 import { filter } from '../../pages/todo/TodoPage';
 
 interface IItemProps extends AccordionProps {
@@ -85,7 +84,6 @@ const Section: React.FC<IItemProps> = ({
               </Select>
             </FormControl>
             <TextField
-              // value={filters.title}
               onChange={handleTitleChange}
               size="small"
               label="title"

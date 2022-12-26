@@ -127,16 +127,11 @@ const TodoCard: React.FC<ICardProps> = ({
   );
 
   useEffect(() => {
-    setFilterdTodos([]);
-  }, [filters.owner, filters.title, todos]);
-
-  useEffect(() => {
     const filtering = todos.filter(
       todo =>
         (filters.owner === '전체' ? true : todo.owner === filters.owner) &&
         (filters.title === '' ? true : todo.title.includes(filters.title)),
     );
-    setTimeout(() => setFilterdTodos(filtering), 10);
   }, [filters.owner, filters.title, todos]);
 
   useEffect(() => {

@@ -22,7 +22,7 @@ const InfiniteScroll = ({
   dataLength,
   children,
   renderer,
-  minHeight = 1,
+  minHeight = 100,
 }) => {
   const triggered = useRef(false);
 
